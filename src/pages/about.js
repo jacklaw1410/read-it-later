@@ -10,7 +10,7 @@ const AboutMePage = () => (
     <h1>Hey that's me!</h1>
     <p>A self-taught engineer, a thinker, a philosorapter.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+      <Image src="philosoraptor.jpeg" />
     </div>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
