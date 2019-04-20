@@ -18,23 +18,23 @@ const Image = ({ src }) => (
   <StaticQuery
     query={graphql`
       query {
-        placeholderImages: allFile {
+        placeholderImages: allImageSharp {
           nodes {
-            relativePath
-            childImageSharp {
-              fluid(maxWidth: 300) {
-                ...GatsbyImageSharpFluid
-              }
+            fixed {
+              originalName
+            }
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }
     `}
-    render={data => {
-      const node = data.placeholderImages.nodes.find(n => n.relativePath === src);
-      return node ? (
-        <Img fluid={node.childImageSharp.fluid} />
-      ) : null;
+    render={(data) => {
+      const node = data.placeholderImages.nodes.find(
+        n => n.fixed.originalName === src
+      );
+      return node ? <Img fluid={node.fluid} /> : null;
     }}
   />
 );
