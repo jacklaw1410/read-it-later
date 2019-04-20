@@ -10,13 +10,16 @@ import ChromeReaderModeIcon from '@material-ui/icons/ChromeReaderMode';
 import { distanceInWordsToNow } from 'date-fns';
 import { graphql } from 'gatsby';
 import React from 'react';
-import Layout from '../components/layout';
+import Header from '../components/header';
 import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => (
-  <Layout>
+  <>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Typography variant="h4" gutterBottom>
+
+    <Header />
+
+    <Typography variant="h3" gutterBottom>
       Read it later, maybe?
     </Typography>
 
@@ -68,7 +71,7 @@ const IndexPage = ({ data }) => (
         </span>
       </Typography>
     )}
-  </Layout>
+  </>
 );
 
 export const query = graphql`

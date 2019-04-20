@@ -1,32 +1,33 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
-import CssBaseline from "@material-ui/core/CssBaseline"
-import { ThemeProvider } from "@material-ui/styles"
-import theme from "../../src/theme"
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/styles';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import theme from '../../src/theme';
 
-export default function TopLayout(props) {
-  return (
-    <React.Fragment>
-      <Helmet>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
-          rel="stylesheet"
-        />
-      </Helmet>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
+const TopLayout = props => (
+  <>
+    <Helmet>
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+      />
+      <link
+        href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
+        rel="stylesheet"
+      />
+    </Helmet>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <main style={{ maxWidth: '84ch', padding: '2ch', margin: 'auto' }}>
         {props.children}
-      </ThemeProvider>
-    </React.Fragment>
-  )
-}
+      </main>
+    </ThemeProvider>
+  </>
+);
 
 TopLayout.propTypes = {
   children: PropTypes.node,
-}
+};
+
+export default TopLayout;

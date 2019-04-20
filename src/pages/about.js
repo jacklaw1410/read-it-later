@@ -1,19 +1,24 @@
+import Typography from '@material-ui/core/Typography';
 import { Link } from 'gatsby';
 import React from 'react';
-
+import Header from '../components/header';
 import Image from '../components/image';
-import Layout from '../components/layout';
+import SEO from '../components/seo';
+
 
 const AboutMePage = () => (
-  <Layout>
-    {/* <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} /> */}
-    <h1>Hey that's me!</h1>
-    <p>A self-taught engineer, a thinker, a philosorapter.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+  <>
+    <SEO title="About me" />
+
+    <Header />
+
+    <Typography variant="h3" gutterBottom>Hey that's me!</Typography>
+    <div style={{ maxWidth: `200px`, marginBottom: `1.45rem` }}>
       <Image src="philosoraptor.jpeg" />
     </div>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
+    <Typography paragraph>A self-taught engineer, a thinker, a philosorapter.</Typography>
+    <Link to="/">Back to the homepage</Link>
+  </>
 );
 
 export default AboutMePage;
