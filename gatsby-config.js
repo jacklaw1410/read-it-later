@@ -29,13 +29,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Read it later`,
+        short_name: `Read it later`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/site-icon.png`, // This path is relative to the root of the site.
+        background_color: `#a9d9ff`,
+        theme_color: `#a9d9ff`,
+        display: `standalone`,
+        icon: `src/images/site-icon.png`,
       },
     },
     {
