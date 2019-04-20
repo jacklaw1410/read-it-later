@@ -1,9 +1,9 @@
 {
   "name": "read-it-later",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "News, articles, blog posts, and whatever content I want to read later, in a hassle-free way.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jack Law <jacklaw1410@gmail.com>",
   "dependencies": {
     "@material-ui/core": "next",
     "@material-ui/styles": "next",
@@ -36,9 +36,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/jacklaw1410/read-it-later"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/jacklaw1410/read-it-later/issues"
   }
 }
