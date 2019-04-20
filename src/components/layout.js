@@ -5,7 +5,6 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import CssBaseline from "@material-ui/core/CssBaseline"
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
@@ -26,7 +25,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{

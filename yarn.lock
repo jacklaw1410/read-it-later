@@ -800,7 +800,7 @@
     react-transition-group "^4.0.0"
     warning "^4.0.1"
 
-"@material-ui/styles@^4.0.0-alpha.8":
+"@material-ui/styles@^4.0.0-alpha.8", "@material-ui/styles@next":
   version "4.0.0-alpha.8"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.0.0-alpha.8.tgz#3d13234824253aa9a394e251e4ee0e4bf1855a34"
   integrity sha512-mAFQ0PxJ/lfETFkvildzZqbV8vJpFiScBOwitbBVPpQ4BIPaRgO2x2BC53Ew4Nozk47JQmGUrXQGtBuYC4ASPQ==
@@ -4677,6 +4677,13 @@ gatsby-plugin-manifest@^2.0.29:
   dependencies:
     "@babel/runtime" "^7.0.0"
     sharp "^0.21.3"
+
+gatsby-plugin-material-ui@next:
+  version "2.0.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-material-ui/-/gatsby-plugin-material-ui-2.0.0-alpha.6.tgz#8602f18750c0e5fa981452de75742e32a3791f64"
+  integrity sha512-DFoiyuR6Fxv7Pkks4Mi84kvkdnXRtWiEmPRMNx2FTG97ETiJoUxtaoL60pB2L+mkNZWFnU3WUVG1nepZKBb7Sw==
+  dependencies:
+    "@material-ui/styles" next
 
 gatsby-plugin-offline@^2.0.25:
   version "2.0.25"

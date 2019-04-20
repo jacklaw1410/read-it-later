@@ -1,3 +1,4 @@
+import Typography from "@material-ui/core/Typography"
 import React from "react"
 import { Link } from "gatsby"
 
@@ -8,7 +9,10 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Read it later, maybe?</h1>
+    <Typography variant="h4" gutterBottom>
+      Read it later, maybe?
+    </Typography>
+
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
