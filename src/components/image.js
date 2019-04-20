@@ -44,7 +44,7 @@ Image.propTypes = {
 };
 
 Image.defaultProps = {
-  src: `gatsby-astronaut.png`,
+  src: ``,
 };
 
 export default Image;
