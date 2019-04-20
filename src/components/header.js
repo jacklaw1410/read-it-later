@@ -1,5 +1,7 @@
+import Typography from '@material-ui/core/Typography';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import React from 'react';
+import GitHubIcon from '../images/github.svg';
 
 const Header = ({ siteTitle }) => (
   <StaticQuery
@@ -8,6 +10,7 @@ const Header = ({ siteTitle }) => (
         site {
           siteMetadata {
             title
+            repoUrl
           }
         }
       }
@@ -15,27 +18,31 @@ const Header = ({ siteTitle }) => (
     render={data => (
       <header
         style={{
-          marginBottom: `1.45rem`,
+          marginTop: '1.625rem',
+          marginBottom: '2.625rem',
+          display: 'flex',
+          alignItems: 'center',
         }}
       >
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `1.45rem 1.0875rem`,
-          }}
+        <Typography variant="h4">
+          <Link to="/" style={{ textDecoration: `none`, fontWeight: 700 }}>
+            {data.site.siteMetadata.title}
+          </Link>
+        </Typography>
+
+        <div style={{ flexGrow: 1 }} />
+
+        <a
+          href={data.site.siteMetadata.repoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <h1 style={{ margin: 0 }}>
-            <Link
-              to="/"
-              style={{
-                textDecoration: `none`,
-              }}
-            >
-              {data.site.siteMetadata.title}
-            </Link>
-          </h1>
-        </div>
+          <GitHubIcon />
+        </a>
+        
+        <Link to="/about" style={{ textDecoration: `none`, marginLeft: '0.5rem' }}>
+          About me
+        </Link>
       </header>
     )}
   />

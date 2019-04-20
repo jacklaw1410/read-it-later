@@ -3,6 +3,7 @@ module.exports = {
     title: `Read it later`,
     description: `News, articles, blog posts, and whatever content I want to read later, in a hassle-free way.`,
     author: `@jacklaw1410`,
+    repoUrl: `https://github.com/jacklaw1410/read-it-later`,
   },
   plugins: [
     `gatsby-plugin-top-layout`,
@@ -36,6 +37,14 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/ // See below to configure properly
+        }
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
