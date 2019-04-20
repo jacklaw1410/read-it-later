@@ -1,8 +1,8 @@
-import { Link } from "gatsby"
-import React from "react"
+import { Link } from 'gatsby';
+import React from 'react';
 
-import Image from "../components/image"
-import Layout from "../components/layout"
+import Image from '../components/image';
+import Layout from '../components/layout';
 
 const AboutMePage = () => (
   <Layout>
@@ -14,6 +14,6 @@ const AboutMePage = () => (
     </div>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
-)
+);
 
-export default AboutMePage
+export default AboutMePage;
