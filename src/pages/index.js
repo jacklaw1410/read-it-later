@@ -8,10 +8,24 @@ import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import ChromeReaderModeIcon from '@material-ui/icons/ChromeReaderMode';
 import { distanceInWordsToNow } from 'date-fns';
-import { graphql } from 'gatsby';
+import gql from 'graphql-tag';
 import React from 'react';
+import { Query } from 'react-apollo';
 import Header from '../components/header';
 import SEO from '../components/seo';
+
+const BOOKMARK_QUERY = gql`
+  query {
+    bookmarks {
+      url
+      title
+      added
+      tags {
+        name
+      }
+    }
+  }
+`;
 
 const IndexPage = ({ data }) => (
   <>
@@ -25,67 +39,67 @@ const IndexPage = ({ data }) => (
 
     <Typography paragraph>Lorem ipsum</Typography>
 
-    {data.bookmarks.nodes.length ? (
-      <Table>
-        <Hidden smDown>
-          <TableHead>
-            <TableRow>
-              <TableCell align="left">Title</TableCell>
-              <TableCell align="left">When added?</TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          </TableHead>
-        </Hidden>
-        <TableBody>
-          {data.bookmarks.nodes.map(node => (
-            <TableRow key={node.id}>
-              <TableCell>{node.title}</TableCell>
+    <Query query={BOOKMARK_QUERY}>
+      {({ loading, error, data }) => {
+        if (loading) return <div>Fetching...</div>;
+        if (error) return <div>Oooops...</div>;
 
-              <Hidden smDown>
-                <TableCell>{`${distanceInWordsToNow(new Date(node.created))} ago`}</TableCell>
-              </Hidden>
+        const { bookmarks } = data;
 
-              <TableCell>
+        if (bookmarks.length === 0) {
+          return (
+            <Typography>
+              <span role="img" aria-label="sparkle">
+                ✨
+              </span>
+              Awesome! No more unfinished bookmarks!
+              <span role="img" aria-label="dizzy">
+                {' '}
+                💫
+              </span>
+            </Typography>
+          );
+        }
 
-              <IconButton
-                  href={node.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ChromeReaderModeIcon />
-                </IconButton>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    ) : (
-      <Typography>
-        <span role="img" aria-label="sparkle">
-          ✨
-        </span>
-        Awesome! No more unfinished bookmarks!
-        <span role="img" aria-label="dizzy">
-          {' '}
-          💫
-        </span>
-      </Typography>
-    )}
+        return (
+          <Table>
+            <Hidden smDown>
+              <TableHead>
+                <TableRow>
+                  <TableCell align="left">Title</TableCell>
+                  <TableCell align="left">When added?</TableCell>
+                  <TableCell />
+                </TableRow>
+              </TableHead>
+            </Hidden>
+            <TableBody>
+              {bookmarks.map(bookmark => (
+                <TableRow key={bookmark.url}>
+                  <TableCell>{bookmark.title}</TableCell>
+
+                  <Hidden smDown>
+                    <TableCell>{`${distanceInWordsToNow(
+                      new Date(bookmark.added)
+                    )} ago`}</TableCell>
+                  </Hidden>
+
+                  <TableCell>
+                    <IconButton
+                      href={bookmark.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ChromeReaderModeIcon />
+                    </IconButton>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        );
+      }}
+    </Query>
   </>
 );
-
-export const query = graphql`
-  query {
-    bookmarks: allBookmarkJson {
-      nodes {
-        id
-        title
-        url
-        tags
-        created
-      }
-    }
-  }
-`;
 
 export default IndexPage;
