@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Read it later`,
+    title: `Read later`,
     description: `News, articles, blog posts, and whatever content I want to read later, in a hassle-free way.`,
     author: `@jacklaw1410`,
-    repoUrl: `https://github.com/jacklaw1410/read-it-later`,
+    repoUrl: `https://github.com/jacklaw1410/read-later-client`,
   },
   plugins: [
     `gatsby-plugin-top-layout`,
@@ -29,8 +29,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Read it later`,
-        short_name: `Read it later`,
+        name: `Read later`,
+        short_name: `Read later`,
         start_url: `/`,
         background_color: `#a9d9ff`,
         theme_color: `#a9d9ff`,

@@ -1,5 +1,5 @@
 {
-  "name": "read-it-later",
+  "name": "read-later-client",
   "private": true,
   "description": "News, articles, blog posts, and whatever content I want to read later, in a hassle-free way.",
   "version": "0.1.0",
@@ -40,9 +40,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jacklaw1410/read-it-later"
+    "url": "https://github.com/jacklaw1410/read-later-client"
   },
   "bugs": {
-    "url": "https://github.com/jacklaw1410/read-it-later/issues"
+    "url": "https://github.com/jacklaw1410/read-later-client/issues"
   }
 }
