@@ -31,13 +31,21 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /images/ // See below to configure properly
-        }
-      }
+          include: /images/, // See below to configure properly
+        },
+      },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `Bookmark`,
+        fieldName: `library`,
+        url: 'https://read-later-node.herokuapp.com',
+      },
+    },
   ],
-}
+};

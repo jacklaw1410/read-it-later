@@ -19,6 +19,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.6.9",
     "gatsby-source-filesystem": "^2.3.8",
+    "gatsby-source-graphql": "^2.5.2",
     "gatsby-transformer-sharp": "^2.5.3",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.7.2",
