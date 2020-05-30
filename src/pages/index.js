@@ -58,51 +58,43 @@ const IndexPage = () => {
           </span>
         </Typography>
       ) : (
-        <Table>
-          <Hidden smDown>
-            <TableHead>
-              <TableRow>
-                <TableCell align="left">Title</TableCell>
-                <TableCell align="left">When added?</TableCell>
-                <TableCell align="left">Tags</TableCell>
-              </TableRow>
-            </TableHead>
-          </Hidden>
-          <TableBody>
-            {bookmarks.map(bookmark => (
-              <TableRow key={bookmark.url}>
-                <TableCell>
-                  <Link
-                    href={bookmark.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {' '}
-                    {bookmark.title}
-                  </Link>
-                </TableCell>
+        <Box display="grid" style={{ gridGap: 8 }}>
+          {bookmarks.map(bookmark => (
+            <Box key={bookmark.url} pb={1} borderBottom="solid 1px #dcdcdc">
+              <Box>
+                <Link
+                  href={bookmark.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {bookmark.title}
+                </Link>
+              </Box>
+              <Box>
+                <Box display="flex" alignItems="center">
+                  <Typography variant="caption">
+                    <i>{`${formatDistanceToNow(
+                      new Date(bookmark.added)
+                    )} ago`}</i>
+                  </Typography>
 
-                <Hidden smDown>
-                  <TableCell>{`${formatDistanceToNow(
-                    new Date(bookmark.added)
-                  )} ago`}</TableCell>
-
-                  <TableCell>
-                    {bookmark.tags.map(tag => (
-                      <Box key={tag.name} m={0.5}>
-                        <Chip
-                          variant="outlined"
-                          size="small"
-                          label={tag.name}
-                        />
-                      </Box>
-                    ))}
-                  </TableCell>
-                </Hidden>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+                  {bookmark.tags.map(tag => (
+                    <Box mx={0.5} key={tag.name}>
+                      <Chip
+                        variant="outlined"
+                        size="small"
+                        label={
+                          <Typography variant="caption">{tag.name}</Typography>
+                        }
+                        style={{ height: 'auto' }}
+                      />
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
+            </Box>
+          ))}
+        </Box>
       )}
     </>
   );
