@@ -1,12 +1,13 @@
+import Box from '@material-ui/core/Box';
+import Chip from '@material-ui/core/Chip';
 import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
+import Link from '@material-ui/core/Link';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
-import ChromeReaderModeIcon from '@material-ui/icons/ChromeReaderMode';
 import { formatDistanceToNow } from 'date-fns';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
@@ -32,7 +33,7 @@ const IndexPage = () => {
   const {
     library: { bookmarks },
   } = useStaticQuery(BOOKMARK_QUERY);
-  console.log(bookmarks)
+
   return (
     <>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -63,30 +64,41 @@ const IndexPage = () => {
               <TableRow>
                 <TableCell align="left">Title</TableCell>
                 <TableCell align="left">When added?</TableCell>
-                <TableCell />
+                <TableCell align="left">Tags</TableCell>
               </TableRow>
             </TableHead>
           </Hidden>
           <TableBody>
             {bookmarks.map(bookmark => (
               <TableRow key={bookmark.url}>
-                <TableCell>{bookmark.title}</TableCell>
+                <TableCell>
+                  <Link
+                    href={bookmark.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {' '}
+                    {bookmark.title}
+                  </Link>
+                </TableCell>
 
                 <Hidden smDown>
                   <TableCell>{`${formatDistanceToNow(
                     new Date(bookmark.added)
                   )} ago`}</TableCell>
-                </Hidden>
 
-                <TableCell>
-                  <IconButton
-                    href={bookmark.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ChromeReaderModeIcon />
-                  </IconButton>
-                </TableCell>
+                  <TableCell>
+                    {bookmark.tags.map(tag => (
+                      <Box key={tag.name} m={0.5}>
+                        <Chip
+                          variant="outlined"
+                          size="small"
+                          label={tag.name}
+                        />
+                      </Box>
+                    ))}
+                  </TableCell>
+                </Hidden>
               </TableRow>
             ))}
           </TableBody>
