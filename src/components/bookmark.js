@@ -3,6 +3,7 @@ import Chip from '@material-ui/core/Chip';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { formatDistanceToNow } from 'date-fns';
+import { navigate } from 'gatsby';
 import React from 'react';
 
 const Bookmark = ({ bookmark }) => {
@@ -26,6 +27,10 @@ const Bookmark = ({ bookmark }) => {
                 size="small"
                 label={<Typography variant="caption">{tag.name}</Typography>}
                 style={{ height: 'auto' }}
+                clickable
+                onClick={() => {
+                  navigate(`/tag/${tag.name}`);
+                }}
               />
             </Box>
           ))}

@@ -14,8 +14,8 @@ export default function BlogPost({ pageContext }) {
 
       <Header />
 
-      <Typography paragraph gutterBottom>
-        Bookmarks related to {tag.name}:
+      <Typography variant="h4" gutterBottom paragraph>
+        You're looking at: <i>{tag.name}</i>
       </Typography>
 
       <Box display="grid" style={{ gridGap: 8 }}>

@@ -32,11 +32,9 @@ const IndexPage = () => {
 
       <Header />
 
-      <Typography variant="h3" gutterBottom>
+      <Typography variant="h4" gutterBottom paragraph>
         Read it later, maybe?
       </Typography>
-
-      <Typography paragraph>Lorem ipsum</Typography>
 
       {bookmarks.length === 0 ? (
         <Typography>
